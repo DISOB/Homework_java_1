@@ -18,7 +18,7 @@ jobs:
       
       - name: build cpp app
         run: |
-          g++ ComplexNumberWork/Main.cpp -o first.o
+          g++ ComplexNumberWork/Main.java -o first.o
     
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.1.2

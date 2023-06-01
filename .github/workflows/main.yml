@@ -1,0 +1,28 @@
+name: build cpp laba
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  workflow_dispatch:
+      
+jobs:
+  build_cpp_file:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v3
+      
+      - name: build cpp app
+        run: |
+          g++ ComplexNumberWork/Main.cpp -o first.o
+    
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v3.1.2
+        with:
+          name: cpp_app
+          path: first.o
+          retetion-days: 7
